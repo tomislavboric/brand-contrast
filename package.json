@@ -1,0 +1,31 @@
+{
+  "name": "brand-contrast",
+  "version": "1.0.0",
+  "description": "Turn any brand colour into readable text, link and button-ink colours that pass WCAG contrast — without repainting the brand.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Tomislav Borić",
+  "repository": "github:tomislavboric/brand-contrast",
+  "homepage": "https://tomislavboric.github.io/brand-contrast/",
+  "keywords": ["wcag", "contrast", "accessibility", "a11y", "color", "theming", "design-tokens", "white-label"],
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": ["src"],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "demo": "vite",
+    "demo:build": "vite build",
+    "demo:preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.1.0",
+    "vitest": "^1.6.1"
+  }
+}

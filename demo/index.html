@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>brand-contrast — readable tokens from any brand colour</title>
+    <meta name="description" content="Pick any brand colour and see the WCAG-readable link, button and chip colours derived from it, in light and dark themes." />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23F5D90A'/%3E%3Cpath d='M16 2a14 14 0 0 0 0 28z' fill='%231A1A6E'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="logo" href="./" aria-label="brand-contrast home">
+          <span class="logo__mark" aria-hidden="true"></span>
+          <span class="logo__name">brand-contrast</span>
+        </a>
+        <nav class="site-header__nav">
+          <a href="https://github.com/tomislavboric/brand-contrast">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Any brand colour, <span class="hero__accent">readable everywhere</span>.</h1>
+        <p class="lede">
+          A customer's brand colour is arbitrary. A near-white yellow and a near-black navy are both legal
+          brand colours, and they need opposite treatment. Pick one below and see the text, link and
+          button-label colours derived from it. Every pair is checked against WCAG 2.1.
+        </p>
+      </section>
+
+      <section class="controls" aria-label="Brand colour">
+        <div class="picker">
+          <label class="picker__swatch" title="Open colour picker">
+            <input id="color" type="color" value="#f5d90a" aria-label="Brand colour picker" />
+          </label>
+          <div class="picker__field">
+            <label for="hex">Brand colour</label>
+            <input id="hex" type="text" value="#F5D90A" spellcheck="false" autocomplete="off" inputmode="text" maxlength="7" aria-describedby="hex-hint" />
+            <span id="hex-hint" class="picker__hint">#rgb or #rrggbb</span>
+          </div>
+          <button id="random" type="button" class="ghost-btn">Random</button>
+        </div>
+        <div class="presets" id="presets" role="list" aria-label="Preset colours"></div>
+      </section>
+
+      <section class="mode" aria-label="Comparison mode">
+        <div class="segmented" role="radiogroup" aria-label="Show">
+          <button type="button" role="radio" aria-checked="true" data-mode="solved">Solved tokens</button>
+          <button type="button" role="radio" aria-checked="false" data-mode="naive">Naive (raw brand + white)</button>
+        </div>
+        <p class="mode__note" id="mode-note"></p>
+      </section>
+
+      <section class="previews" id="previews" aria-label="Previews"></section>
+
+      <section class="strip" aria-labelledby="strip-title">
+        <h2 id="strip-title">Every preset at a glance</h2>
+        <p class="section-lede">The fill is never repainted. White stays on the label while it holds 3:1; below that, the ink becomes a dark tint of the brand itself.</p>
+        <div class="strip__grid" id="strip"></div>
+      </section>
+
+      <section class="code" aria-labelledby="code-title">
+        <h2 id="code-title">The call behind this page</h2>
+        <pre><code id="code"></code></pre>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">MIT licensed · Tomislav Borić</div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
